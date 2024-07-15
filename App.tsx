@@ -1,9 +1,9 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
+import './src/gesture-handler.native'
+// import './src/gesture-handler'
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { NavigationContainer } from '@react-navigation/native';
+
+const Drawer = createDrawerNavigator();
 
 import React from 'react';
 import type {PropsWithChildren} from 'react';
@@ -23,13 +23,22 @@ import SearchBar from './src/SearchBar';
 
 function App(): React.JSX.Element {
 
-  return (
-    <SafeAreaView>
-      {/* <Text>from app</Text> */}
-      <SearchBar/>
-      <Navbar/>
-      <DisplayNotification/>
-    </SafeAreaView>
+  return (<>
+    {/* // <SafeAreaView>
+    //  
+    //   <SearchBar/>
+    //   <Navbar/>
+    //   <DisplayNotification/>
+    // </SafeAreaView> */}
+    <SearchBar/>
+    <NavigationContainer>
+      <Drawer.Navigator initialRouteName='Nav'>
+        <Drawer.Screen name='notifys' component={DisplayNotification} />
+        <Drawer.Screen name='Nav' component={Navbar} />
+      </Drawer.Navigator>
+    </NavigationContainer>
+
+    </>
   );
 }
 
