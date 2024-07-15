@@ -1,19 +1,5 @@
-//create a fake json data of names and gender
 export const data = [
-    // { name: "John", gender: "Male" },
-    // { name: "Jane", gender: "Female" },
-    // { name: "Bob", gender: "Male" },
-    // { name: "Alice", gender: "Female" },
-    // { name: "Sam", gender: "Male" },
-    // { name: "Emma", gender: "Female" },
-    // { name: "Tom", gender: "Male" },
-    // { name: "Lily", gender: "Female" },
-    // { name: "Alex", gender: "Male" },
-    // { name: "Sophia", gender: "Female" }
-    // ];
 
-
-    // [
         {
           "id": 1,
           "date": "2024-06-21",

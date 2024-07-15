@@ -69,7 +69,7 @@ export default function FlatCards(){
               <Text>All</Text>
             </View>
             <View style = {[styles.card, styles.cardOne]}>
-              <Text>filter</Text>
+              <Text>starred</Text>
             </View>
           </View>
           {/* <DisplayNotification/> */}

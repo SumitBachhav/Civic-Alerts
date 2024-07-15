@@ -18,60 +18,51 @@ const DisplayNotification = () => {
 
     const condition = useSelector(state => state.toggle.Value)
 
-    
+    const recent = data.filter(({ id, heading, announcement }) => (
+        id < 5
+    ))
+
+    const all = data.filter(({ id, heading, announcement }) => (
+        id > 4
+    ))
+
 
     return (
         <>
-        <ScrollView style = {styles.container}>
-            {/* <View>
-                {data.map(({ id, date, heading, announcement }) => (
-                        <Pressable style = {styles.card} onPress={onpr} key={id}>
-                            <Text style = {styles.heading}>
-                                {date} 
-                            </Text>
-                            <Text style = {styles.heading}>
-                                {heading} 
-                            </Text>
-                        </Pressable>
-                ))}
-            </View> */}
-            <View>
-                {condition ?
+            <ScrollView style={styles.container}>
+                <View>
+                    {condition ?
 
-                    data.filter(({id, heading, announcement}) => (
-                        id < 5
-                    )).map(({ id, date, heading, announcement }) => (
-                        <Pressable style = {styles.card} onPress={onpr} key={id}>
-                            <Text style = {styles.heading}>
-                                {date} 
-                            </Text>
-                            <Text style = {styles.heading}>
-                                {id}{" "}{heading} 
-                            </Text>
-                        </Pressable>
-                ))
+                        recent.map(({ id, date, heading, announcement }) => (
+                            <Pressable style={styles.card} onPress={onpr} key={id}>
+                                <Text style={styles.heading}>
+                                    {date}
+                                </Text>
+                                <Text style={styles.heading}>
+                                    {id}{" "}{heading}
+                                </Text>
+                            </Pressable>
+                        ))
 
-                :
-                
-                    data.filter(({id, heading, announcement}) => (
-                        id > 4
-                    )).map(({ id, date, heading, announcement }) => (
-                        <Pressable style = {styles.card} onPress={onpr} key={id}>
-                            <Text style = {styles.heading}>
-                                {date} 
-                            </Text>
-                            <Text style = {styles.heading}>
-                            {id}{" "}{heading} 
-                            </Text>
-                        </Pressable>
-                ))
-                }
-            </View>
-            
-        </ScrollView>
-        <View style = {styles.buttonContainer}>
+                        :
+
+                        all.map(({ id, date, heading, announcement }) => (
+                            <Pressable style={styles.card} onPress={onpr} key={id}>
+                                <Text style={styles.heading}>
+                                    {date}
+                                </Text>
+                                <Text style={styles.heading}>
+                                    {id}{" "}{heading}
+                                </Text>
+                            </Pressable>
+                        ))
+                    }
+                </View>
+
+            </ScrollView>
+            {/* <View style = {styles.buttonContainer}>
             <Button title="+"/>
-        </View>
+        </View> */}
         </>
     )
 }
@@ -86,13 +77,13 @@ const styles = StyleSheet.create({
     heading: {
         fontSize: 20,
     },
-    buttonContainer:{
-        marginBottom: 60,
-        width: 40,
-        position: 'absolute',
-        bottom: 30,
-        right: 30,
-    },
+    // buttonContainer:{
+    //     marginBottom: 60,
+    //     width: 40,
+    //     position: 'absolute',
+    //     bottom: 30,
+    //     right: 30,
+    // },
     container: {
         // position: 'static',
         marginTop: 60,

@@ -18,6 +18,7 @@ import {
 } from 'react-native';
 import DisplayNotification from './src/DisplayNotificatoin';
 import Navbar from './src/Navbar';
+import SearchBar from './src/SearchBar';
 
 
 function App(): React.JSX.Element {
@@ -25,6 +26,7 @@ function App(): React.JSX.Element {
   return (
     <SafeAreaView>
       {/* <Text>from app</Text> */}
+      <SearchBar/>
       <Navbar/>
       <DisplayNotification/>
     </SafeAreaView>
